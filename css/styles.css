@@ -118,7 +118,23 @@ html {
     text-align: center;
 }
 
-#product-item {
+.item-product {
     border: 1px  dotted   yellowgreen;
-
+}
+.video-container {
+    border: 1px  dotted   skyblue;
+    width: 100%;
+}
+.video-title {
+    text-align: left;
+}
+.video-footer {
+text-align: left;
+border: 1px solid blue;
+}
+.tag-container {
+    text-align: left;
+}
+.date-container {
+    text-align: right;
 }
