@@ -123,6 +123,8 @@ html {
 #product-container {
     border: 1px solid   yellowgreen;
     text-align: center;
+    overflow: auto;
+    /* height: 700px; */
 }
 
 .item-product {
@@ -195,5 +197,13 @@ border: 1px solid blue;
   .btn-group button:hover {
     background-color: #9D5A1E;
   }
-
   /* Buttons Css  End*/
+
+.master-container{
+    display: grid;
+    justify-items: center;
+    border: 1px solid red;
+}
+.main-content {
+    border: 1px solid blue;
+}
