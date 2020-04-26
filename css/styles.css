@@ -100,18 +100,23 @@ html {
 #main-bar {
     border: 1px solid blue;
     background-color: grey;
+    padding: 0%;
 }
 
 #search-box {
     text-align: left;
     border: 1px solid green;
     background-color: #7BA7BA;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
-#order-box {
+#order-menu {
     text-align: right;
     border: 1px solid red;
     background-color: #7BA7BA;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 
@@ -144,7 +149,7 @@ border: 1px solid blue;
     padding: 1%;
     font-size: 11px;
 }
-
+/* Buttons Css */
 .btn-tag {
     background-color: grey; /* Green */
     border: none;
@@ -159,3 +164,24 @@ border: 1px solid blue;
     border-radius: 6px;
   }
   
+  .btn-group button {
+    background-color: #F0AD4E; /* Green background */
+    border: 1px solid #F0AD4E; /*Green border*/
+    color: white; /* White text */
+    padding: 6px 12px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    border-radius:6px;
+  }
+  
+  /* Clear floats (clearfix hack) */
+  .btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #9D5A1E;
+  }
+  /* Buttons Css  End*/
