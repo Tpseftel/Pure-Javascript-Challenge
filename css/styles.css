@@ -129,8 +129,19 @@ html {
     border: 1px  dotted   yellowgreen;
 }
 .video-container {
+    position: relative;
     border: 1px  dotted   skyblue;
     width: 100%;
+}
+.btn-like{
+    position:absolute;
+    right: 3px;
+    top: 3px;
+    z-index:1;
+    border-radius: 4px;
+    border: none;
+    background-color: #ffffff;
+
 }
 .video-title {
     text-align: left;
@@ -184,4 +195,5 @@ border: 1px solid blue;
   .btn-group button:hover {
     background-color: #9D5A1E;
   }
+
   /* Buttons Css  End*/
