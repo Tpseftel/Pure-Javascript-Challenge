@@ -18,13 +18,20 @@ console.log("==============Initial Products==============");
 const search_input = document.getElementById('search-input');
 
 // Listen for search box input
+let product_array = [];
 search_input.addEventListener('input', e => {
-    // saving the input value
+    // Save the input value
     search_key = e.target.value;
-
     console.log(search_key);
-    search(search_key);
+    product_array =  search(search_key);
+
+    renderProducts(product_array);
 });
+
+
+function renderProducts(products) {
+    console.log(products);
+}
 
 /**
  *  Returns array with matched products
@@ -39,7 +46,7 @@ function search(search_key){
     );
 
     console.log("===================Search Results======================");
-    console.log(results);
+    return results;
 }
 
 /***
@@ -60,31 +67,33 @@ const sort_list = ["Newest First", "Oldest First", "Rating"];
  * @param {String} sort_term 
  */
 function sortProducts(sort_term) {
-    if (sort_term === "Newest First") {
-    console.log("==========================Newest First==========================");
-        sortNewestFirst(true);
-    } else if(sort_term === "Oldest First") {
-        console.log("==========================Oldest First==========================");
-        sortNewestFirst(false);
-    } else { //By Rating Case
-
-    }
+    let descending = true;
+    if (sort_term === "Newest First") sortByDate(descending);
+    else if(sort_term === "Oldest First") sortByDate(!descending);
+    else sortByRating();
 }
-sortProducts("Newest First");
-sortProducts("Oldest First");
 
 /**
  * Sort Data by date
- * @param {Boolean} isNewestFirst 
+ * @param {Boolean} isDescending 
  */
-function sortNewestFirst(isNewestFirst) {
+function sortByDate(isDescending) {
     let sorted_products = [] ;
-    if (isNewestFirst){
-        console.log(isNewestFirst);
+    if (isDescending){
         sorted_products = products.sort((a, b) => Date.parse(b.posttime) - Date.parse(a.posttime));
-    }else {
-        console.log(isNewestFirst);
+    } else {
         sorted_products = products.sort((a, b) => Date.parse(a.posttime) - Date.parse(b.posttime));
     }
+    return sorted_products;
 }
 
+/**
+ * Returns products sorted by rating
+ * @returns {Array} 
+ */
+function sortByRating() {
+    let sorted_products = [];
+    // Descending
+    sorted_products = products.sort((a, b) => b.rating - a.rating);
+    return sorted_products;
+}
