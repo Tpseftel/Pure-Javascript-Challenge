@@ -1,14 +1,3 @@
-/***
- *       _____                  _   
- *      / ____|                | |  
- *     | (___     ___    _ __  | |_ 
- *      \___ \   / _ \  | '__| | __|
- *      ____) | | (_) | | |    | |_ 
- *     |_____/   \___/  |_|     \__|
- *                                  
- *                                  
- */
-
 /**
  * Sort products
  * @param {String} sort_term 
@@ -49,7 +38,6 @@ function sortByRating() {
     return sorted_products;
 }
 
-// Search
 /**
  *  Returns array with matched products
  * @param {String} search_key 
@@ -64,5 +52,13 @@ function search(search_key){
     console.log("===================Search Results======================");
     return results;
 }
-
-
+/**
+ * Beautyfy dates format 
+ * @param {String} date 
+ * @returns {String}
+ */
+function beautifyDate(date) {
+    let post_date = new Date(date);
+    let beauty_date = `${post_date.getDate()}-0${post_date.getMonth() + 1}-${post_date.getFullYear()} ${post_date.getHours()}:${post_date.getMinutes()} `;
+    return beauty_date;
+}
