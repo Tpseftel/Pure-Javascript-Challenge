@@ -99,26 +99,34 @@ html {
 
 #main-bar {
     border: 1px solid blue;
-    background-color: grey;
+    background-color: #7BA7BA;
     padding: 0%;
 }
 
 #search-box {
     text-align: left;
     border: 1px solid green;
-    background-color: #7BA7BA;
-    padding-top: 1%;
-    padding-bottom: 1%;
 }
+
+#search-input[type=text] {
+    float: left;
+    padding: 6px;
+    /* margin-top: 2px; */
+    /* margin-right: 16px; */
+    border: none;
+    font-size: 12px;
+    width: 60%;
+    outline: none;
+  }
+  
 
 #order-menu {
     text-align: right;
     border: 1px solid red;
-    background-color: #7BA7BA;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    background-color: inherit;
+    /* padding-top: 1%; */
+    /* padding-bottom: 0%; */
 }
-
 
 #product-container {
     border: 1px solid   yellowgreen;
@@ -210,3 +218,5 @@ border: 1px solid blue;
 .main-content {
     border: 1px solid blue;
 }
+
+
