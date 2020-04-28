@@ -1,6 +1,6 @@
 // Get Data
 /**
- *  * @param {String} url 
+ * @param {String} url 
  * @returns {JSON}
  */
 async function retrieveData(url) {
@@ -35,7 +35,24 @@ function getAjax(url) {
 }
 
 /**
- * 
+ * Display Product by tag
+ * @param {DomElement} 
+ */
+function searchByTag(e) {
+    let filter_products = [];
+    let tag = e.innerHTML.trim();
+    products.forEach(product => {
+        if(product.tags) {
+            if(product.tags.includes(tag))
+            filter_products.push(product);
+        }
+    renderSortedProducts(sort_by, filter_products);
+    });
+    console.log(filter_products);
+}
+
+
+/**
  * @param {*} sort_by sort order 
  * @param {*} products product array to sort
  */
