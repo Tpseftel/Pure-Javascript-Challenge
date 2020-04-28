@@ -27,9 +27,10 @@ function renderProducts(products) {
 
     products.forEach(product => {
         post_date = beautifyDate(product.posttime);
+        let rating = 'xxx';
+        if(product.rating)rating = product.rating;
         tags = product.tags;
         tag_uniq_id = 'tag-container-'+ product.id;
-        console.log(`This is the unique id:${tag_uniq_id}`) ;
         
         dom_string = `
         <div  class="col-4 item-product">
@@ -37,15 +38,15 @@ function renderProducts(products) {
 
             <div class="video-container"> 
                 <button class="btn-like" type="reset">
-                    <i class="fa fa-thumbs-up">${product.rating}</i>
+                    <i class="fa fa-thumbs-up">${rating}</i>
                 </button> 
-                <video height="100%" width="100%" controls  poster="${product.thumbnail_url}">
+                <video height="100%" width="100%" preload="none" controls  poster="${product.thumbnail_url}">
                     <source src="${product.video_url}" type="video/mp4">
                 </video>
             </div><!-- Video-Container END -->
 
             <div class="video-footer row" > 
-                <div id="${tag_uniq_id}" class=" tag-container col-6">
+                <div id="${tag_uniq_id}"  class="tag-container col-6">
                 </div>
                 <div class="date-container col-6">${post_date}</div>
             </div>
@@ -68,7 +69,7 @@ function renderTags(parent, tags){
     let tag_string = "";
     let html_tag  = "";
     tags.forEach(tag => {
-        tag_string = `<button class="btn-tag">${tag}</button>` ; 
+        tag_string = `<button class="btn-tag" onclick="searchByTag(this)">${tag}</button>` ; 
         // Appent to parent
         html_tag = parser.parseFromString(tag_string, 'text/html').body.children[0]; 
         tag_container.appendChild(html_tag);
