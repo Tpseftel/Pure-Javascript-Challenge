@@ -96,14 +96,14 @@ html {
 
 
 #main-bar {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     background-color: #7BA7BA;
     padding: 0%;
 }
 
 #search-box {
     text-align: left;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 #search-input[type=text] {
@@ -118,20 +118,16 @@ html {
 
 #order-menu {
     text-align: right;
-    border: 1px solid red;
     background-color: inherit;
 }
 .main-content {
-    border: 1px solid blue;
 }
 
 #main-container {
-    border: 2px solid grey;
 }
 
 
 #product-container {
-    border: 1px solid   yellowgreen;
     text-align: center;
     height:55vh;
     overflow: hidden;
@@ -139,15 +135,9 @@ html {
 #product-container:hover {
     overflow-y: scroll;
   }
-.item-product {
-    border: 1px  dotted   yellowgreen;
-    /* max-height: 300px;
-    height: 300px;
-    min-height: auto; */
-}
+
 .video-container {
     position: relative;
-    border: 1px  dotted   skyblue;
     width: 100%;
     height: 100%;
 }
@@ -172,7 +162,6 @@ html {
 }
 .video-footer {
 text-align: left;
-border: 1px solid blue;
 }
 
 .tag-container {
@@ -226,7 +215,10 @@ border: 1px solid blue;
 .master-container{
     display: grid;
     justify-items: center;
-    border: 1px solid red;
+}
+
+.scrollbar-handler{
+    padding-top: 2%;
 }
 
 /* Scroll Bar */
