@@ -35,21 +35,31 @@ function getAjax(url) {
 }
 
 /**
+ * 
+ * @param {*} sort_by sort order 
+ * @param {*} products product array to sort
+ */
+function renderSortedProducts(sort_by, products) {
+    sortProducts(sort_by, products);
+    renderProducts(products);
+}
+
+/**
  * Sort products
  * @param {String} sort_term 
  */
-function sortProducts() {
+function sortProducts(sort_by, products) {
     let descending = true;
-    if (sort_by === "Newest First") sortByDate(descending);
-    else if(sort_by === "Oldest First") sortByDate(!descending);
-    else sortByRating();
+    if (sort_by === "Newest First") return sortByDate(descending, products);
+    else if(sort_by === "Oldest First") return sortByDate(!descending, products);
+    else return sortByRating(products);
 }
 
 /**
  * Sort Data by date
  * @param {Boolean} isDescending 
  */
-function sortByDate(isDescending) {
+function sortByDate(isDescending, products) {
     let sorted_products = [] ;
     if (isDescending){
         sorted_products = products.sort((a, b) => Date.parse(b.posttime) - Date.parse(a.posttime));
@@ -65,7 +75,7 @@ function sortByDate(isDescending) {
  * Returns products sorted by rating
  * @returns {Array} 
  */
-function sortByRating() {
+function sortByRating(products) {
     let sorted_products = [];
     // Descending
     sorted_products = products.sort((a, b) => b.rating - a.rating);

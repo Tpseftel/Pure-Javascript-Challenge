@@ -1,6 +1,18 @@
 const parser = new DOMParser();
 
 /**
+ * Selects the clicked button
+ * @param {element} e 
+ */
+function updateBackground(e){
+    let buttons = document.querySelectorAll(".menu-btn");
+    buttons.forEach(btn => {
+        btn.style.backgroundColor ="#F0AD4E";
+    });
+    e.target.style.backgroundColor = "#9D5A1E";
+}
+
+/**
  * @param {Array} products 
  * @returns {void}
  */
