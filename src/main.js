@@ -1,13 +1,20 @@
+const source1_path = "./data/source1.json";
+const source2_path = "./data/source2.json";
 let sort_by = "Newest First";
 let search_key = '';
 const search_input = document.getElementById('search-input');
 const order_menu = document.getElementById('order-menu');
+let products = [];
 
-function initializeUI() {
-    // TODO: Load Data
+async function initializeUI() {
+    // Load Data
+    // let products1 = await retrieveData(source1_path);
+    let products2 = await retrieveData(source2_path);
+    // products1.forEach(product => products.push(product));
+    // products2.forEach(product => products.push(product));
+    // console.log(products); 
     sortProducts();
     renderProducts(products);
-
 }
 
 // Sort Listener

@@ -173,7 +173,7 @@ border: 1px solid blue;
 }
 /* Buttons Css */
 .btn-tag {
-    background-color: grey; /* Green */
+    background-color: #999999; /* Green */
     border: none;
     color: white;
     padding: 5px;

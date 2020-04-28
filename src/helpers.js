@@ -1,3 +1,39 @@
+// Get Data
+/**
+ *  * @param {String} url 
+ * @returns {JSON}
+ */
+async function retrieveData(url) {
+    try {
+        let data = await getAjax(url);
+        // Fix json with single quotes
+        data = data.replace(/'/g, '"');
+        return JSON.parse(data);
+    } catch (error) {
+        console.log(`Error:${error.message}`);
+    }
+}
+
+/**
+ * 
+ * @param {String} url endpoint url 
+ */
+function getAjax(url) {
+    return new Promise((resolve, reject) => {
+        let req = new XMLHttpRequest();
+        req.open("GET", url, true);
+        req.onload = () => {
+            if (req.status == 200) {
+                resolve(req.response);
+            } else {
+                reject(Error(req.statusText));
+            }
+        };
+        req.onerror = () => reject(Error("Network Error"));
+        req.send();
+    });
+}
+
 /**
  * Sort products
  * @param {String} sort_term 
