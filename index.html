@@ -13,35 +13,33 @@
     <div id="master-container" class="col-12 master-container">
     <div class="col-8 main-content">
         <div class="header">
-            <h1>Front End</h1>
+            <span>Front End Test</span>
         </div>
         <div id="main-container" class="col-12">
-            <div id="main-bar" class="col-12">
+            <div id="main-bar" class="row">
                 <div id="search-box" class="col-6">
-                    <input type="search" id="search-input"  placeholder="Search..." >
+                    <input type="text" id="search-input"  placeholder="Search..." >
                 </div>
                 <div id="order-menu" class="col-6 btn-group" >
                     <label>Order By</label>
-                    <button id="btn-newest-first">Newest First</button>
-                    <button id="btn-oldest-first">Oldest First</button>
-                    <button id="rating">Rating</button>
+                    <button id="btn-newest-first" class="menu-btn">Newest First</button>
+                    <button id="btn-oldest-first" class="menu-btn">Oldest First</button>
+                    <button id="rating" class="menu-btn">Rating</button>
                 </div>
             </div> <!-- Main Bar End -->
-            <div id="product-container" class="row" >
-            
-
-
-            </div> <!--Product-Container End -->
+            <div class="scrollbar-handler">
+                <div id="product-container" class="row" >
+                </div> <!--Product-Container End -->
+            </div>
             <br>
-                <br>
                 <br>
                 <hr>
         </div> <!-- Main Container End -->
     </div>
 </div>
 
-
-    <script src=".\src\data.js"></script>
+    <!-- For Local Test Uncomment the below line -->
+     <script src=".\data\data.js"></script> 
     <script src=".\src\helpers.js"></script>
     <script src=".\src\ui.js"></script>
     <script src=".\src\main.js"></script>

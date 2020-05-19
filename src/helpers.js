@@ -1,19 +1,82 @@
+// Get Data
+/**
+ * @param {String} url 
+ * @returns {JSON}
+ */
+async function retrieveData(url) {
+    try {
+        let data = await getAjax(url);
+        // Fix json with single quotes
+        data = data.replace(/'/g, '"');
+        return JSON.parse(data);
+    } catch (error) {
+        console.log(`Error:${error.message}`);
+    }
+}
+
+/**
+ * 
+ * @param {String} url endpoint url 
+ */
+function getAjax(url) {
+    return new Promise((resolve, reject) => {
+        let req = new XMLHttpRequest();
+        req.open("GET", url, true);
+        req.onload = () => {
+            if (req.status == 200) {
+                resolve(req.response);
+            } else {
+                reject(Error(req.statusText));
+            }
+        };
+        req.onerror = () => reject(Error("Network Error"));
+        req.send();
+    });
+}
+
+/**
+ * Display Product by tag
+ * @param {DomElement} 
+ */
+function searchByTag(e) {
+    let filter_products = [];
+    let tag = e.innerHTML.trim();
+    products.forEach(product => {
+        if(product.tags) {
+            if(product.tags.includes(tag))
+            filter_products.push(product);
+        }
+    renderSortedProducts(sort_by, filter_products);
+    });
+    console.log(filter_products);
+}
+
+
+/**
+ * @param {*} sort_by sort order 
+ * @param {*} products product array to sort
+ */
+function renderSortedProducts(sort_by, products) {
+    sortProducts(sort_by, products);
+    renderProducts(products);
+}
+
 /**
  * Sort products
  * @param {String} sort_term 
  */
-function sortProducts() {
+function sortProducts(sort_by, products) {
     let descending = true;
-    if (sort_by === "Newest First") sortByDate(descending);
-    else if(sort_by === "Oldest First") sortByDate(!descending);
-    else sortByRating();
+    if (sort_by === "Newest First") return sortByDate(descending, products);
+    else if(sort_by === "Oldest First") return sortByDate(!descending, products);
+    else return sortByRating(products);
 }
 
 /**
  * Sort Data by date
  * @param {Boolean} isDescending 
  */
-function sortByDate(isDescending) {
+function sortByDate(isDescending, products) {
     let sorted_products = [] ;
     if (isDescending){
         sorted_products = products.sort((a, b) => Date.parse(b.posttime) - Date.parse(a.posttime));
@@ -29,7 +92,7 @@ function sortByDate(isDescending) {
  * Returns products sorted by rating
  * @returns {Array} 
  */
-function sortByRating() {
+function sortByRating(products) {
     let sorted_products = [];
     // Descending
     sorted_products = products.sort((a, b) => b.rating - a.rating);
