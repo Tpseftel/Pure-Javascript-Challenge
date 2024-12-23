@@ -6,8 +6,6 @@
 async function retrieveData(url) {
     try {
         let data = await getAjax(url);
-        // Fix json with single quotes
-        data = data.replace(/'/g, '"');
         return JSON.parse(data);
     } catch (error) {
         console.log(`Error:${error.message}`);
