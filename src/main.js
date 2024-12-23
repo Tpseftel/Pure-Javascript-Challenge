@@ -11,12 +11,12 @@ if (no_server) {
     products = object_products;
 }
 
-async function initializeUI() {
+function initializeUI() {
     try {
         // Load Data
         if(!no_server){
-            let products1 = await retrieveData(source1_path);
-            let products2 = await retrieveData(source2_path);
+            let products1 = retrieveData(source1_path);
+            let products2 = retrieveData(source2_path);
             products1.forEach(product => products.push(product));
             products2.forEach(product => products.push(product));
         }
